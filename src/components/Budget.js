@@ -9,7 +9,9 @@ class Budget extends React.Component {
     super(props);
     this.state = {
       budgetAmount: '',
-      initialAmount: '',
+      incomeAmount: '',
+      expenseAmount: '',
+      // initialAmount: '',
       goodStanding: true,
       income: true,
       incomeAmounts: [],
@@ -18,18 +20,18 @@ class Budget extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.flipIncomeValue = this.flipIncomeValue.bind(this);
-    this.addToInitialAmount = this.addToInitialAmount.bind(this);
+    // this.addToInitialAmount = this.addToInitialAmount.bind(this);
   }
 
   handleSubmit = () => {
     if (this.state.income === true) {
       let incomeAmounts = [...this.state.incomeAmounts];
-      incomeAmounts.push(this.state.budgetAmount);
-      this.setState({ incomeAmounts, budgetAmount: '' });
+      incomeAmounts.push(this.state.incomeAmount);
+      this.setState({ incomeAmounts, incomeAmount: '' });
     } else {
       let expenseAmounts = [...this.state.expenseAmounts];
-      expenseAmounts.push(this.state.budgetAmount);
-      this.setState({ expenseAmounts, budgetAmount: '' });
+      expenseAmounts.push(this.state.expenseAmount);
+      this.setState({ expenseAmounts, expenseAmount: '' });
     }
 
   }
@@ -39,23 +41,27 @@ class Budget extends React.Component {
   }
 
   handleInputChange(event) {
-    this.setState({ budgetAmount: parseInt(event.target.value) || 0 });
-  }
-
-  addToInitialAmount(event) {
-    this.setState({ initialAmount: parseInt(event.target.value) || 0 });
-  }
-
-  addInitialAmountToBudgetAmount = () => {
-    if (this.state.initialAmount) {
-      let initialAmount = this.state.initialAmount;
-      let budgetAmount = this.state.budgetAmount;
-      this.setState({ budgetAmount: initialAmount, });
+    if (this.state.income) {
+      this.setState({ incomeAmount: parseInt(event.target.value) || 0 });
     } else {
-      console.log('There was an error');
+      this.setState({ expenseAmount: parseInt(event.target.value) || 0 });
     }
 
   }
+
+  // addToInitialAmount(event) {
+  //   this.setState({ initialAmount: parseInt(event.target.value) || 0 });
+  // }
+
+  // addInitialAmountToBudgetAmount = () => {
+  //   if (this.state.initialAmount) {
+  //     let initialAmount = this.state.initialAmount;
+  //     this.setState({ budgetAmount: initialAmount, });
+  //   } else {
+  //     console.log('There was an error');
+  //   }
+
+  // }
 
   render() {
 
@@ -63,9 +69,9 @@ class Budget extends React.Component {
       <div>
         <BudgetAmount transactionType={this.state.income} incomeAmounts={this.state.incomeAmounts} expenseAmounts={this.state.expenseAmounts} budgetAmount={this.state.budgetAmount} />
         <h2>Enter Budget</h2>
-        <input type="text" value={this.state.initialAmount} onChange={this.addToInitialAmount} />
+        {/* <input type="text" value={this.state.initialAmount} onChange={this.addToInitialAmount} />
         <button onClick={this.addInitialAmountToBudgetAmount}>Submit</button>
-        <br /> <br /> <br />
+        <br /> <br /> <br /> */}
         <div>
           <select value={this.state.income} onChange={this.flipIncomeValue}>
             <option value={true}>Income</option>
@@ -73,7 +79,7 @@ class Budget extends React.Component {
           </select>
           <h2>Enter {this.state.income ? 'Income' : 'Expense'} </h2>
         </div>
-        <input id="transactionValue" type="text" value={this.state.budgetAmount} onChange={this.handleInputChange} placeholder="Enter Value" />
+        <input id="transactionValue" type="text" value={this.state.income ? this.state.incomeAmount : this.state.expenseAmount} onChange={this.handleInputChange} placeholder="Enter Value" />
         <button onClick={this.handleSubmit}>Submit</button>
         <IncomeTransactions incomeAmounts={this.state.incomeAmounts} />
         <ExpenseTransactions expenseAmounts={this.state.expenseAmounts} />
