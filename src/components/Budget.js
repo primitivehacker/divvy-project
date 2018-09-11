@@ -42,9 +42,9 @@ class Budget extends React.Component {
 
   handleInputChange(event) {
     if (this.state.income) {
-      this.setState({ incomeAmount: parseInt(event.target.value) || 0 });
+      this.setState({ incomeAmount: parseInt(event.target.value) });
     } else {
-      this.setState({ expenseAmount: parseInt(event.target.value) || 0 });
+      this.setState({ expenseAmount: parseInt(event.target.value) });
     }
 
   }
@@ -67,7 +67,7 @@ class Budget extends React.Component {
 
     return (
       <div>
-        <BudgetAmount transactionType={this.state.income} incomeAmounts={this.state.incomeAmounts} expenseAmounts={this.state.expenseAmounts} budgetAmount={this.state.budgetAmount} />
+        <BudgetAmount transactionType={this.state.income} incomeAmounts={this.state.incomeAmounts} expenseAmounts={this.state.expenseAmounts} budgetAmount={this.state.budgetAmount} incomeAmount={this.props.incomeAmount} expenseAmount={this.props.expenseAmount} />
         <h2>Enter Budget</h2>
         {/* <input type="text" value={this.state.initialAmount} onChange={this.addToInitialAmount} />
         <button onClick={this.addInitialAmountToBudgetAmount}>Submit</button>

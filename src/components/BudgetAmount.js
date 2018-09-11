@@ -5,21 +5,28 @@ export function BudgetAmount(props) {
   let expenseAmounts = props.expenseAmounts;
   let incomeAmounts = props.incomeAmounts;
   let budgetAmount = props.budgetAmount;
-
+  let incomeAmount = props.incomeAmount;
+  let expenseAmount = props.expenseAmount;
 
   let totalIncome = incomeAmounts.reduce((accumulator, currentVal) => accumulator + currentVal, 0);
-  let totalExpenses = expenseAmounts.reduce((accumulator, currentVal) => accumulator + currentVal, -totalIncome);
+  let totalExpenses = expenseAmounts.reduce((accumulator, currentVal) => accumulator + currentVal, 0);
 
-  const calculateBudget = (value) => {
+  let updatedBudget = totalIncome - totalExpenses;
+
+  const calculateBudget = (income, expenses) => {
     if (props.transactionType === true) {
-      return budgetAmount + value;
+      return income - expenses;
     } else {
-      return budgetAmount - value;
+      return income - expenses;
     }
+  }
+
+  const displayBudget = () => {
+
   }
   return (
     <div>
-      <h1>Budget: {props.transactionType === true ? calculateBudget(totalIncome) : calculateBudget(totalExpenses)}</h1>
+      <h1>Budget: {props.transactionType === true ? calculateBudget(totalIncome, totalExpenses) : calculateBudget(totalIncome, totalExpenses)}</h1>
     </div>
   );
 }
