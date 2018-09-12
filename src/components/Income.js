@@ -4,7 +4,7 @@ import React from 'react';
 export function Income(props) {
   return (
     <div>
-      <h1>{props.value}</h1>
+      <h4>{props.value}</h4>
     </div>
   );
 }
