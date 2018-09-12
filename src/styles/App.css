@@ -1,33 +1,77 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-.expenseItem {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 5% 1fr 5%;
+  background-color: white;
+
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.Budget {
+  background-color:white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  grid-column-start: 2;
+  grid-column-end: 3;
 }
+.Expenses {
+  background-color:#ED8576;
+  grid-column: 2 / 4;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.Income {
+  background-color: #76ED84;
+  grid-column: 1 / 2;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.InputContainer{
+  background-color:#8576ED;
+  grid-column: 1 / 4;
+  display: grid;
+  grid-template-columns: 30% 1fr;
+}
+
+.InputSection {
+  grid-column-start: 2;
+  display: grid;
+  grid-template-columns: 5% 15% 10% 20% 10%;
+  align-items: center;
+  justify-items: center;
+}
+.BudgetAmount{
+  grid-column: 2 / 3;
+}
+.Transactions {
+  grid-column: 1 / 4;
+  grid-gap: 10px;
+  display: grid;
+  grid-template-columns: 10% 1fr;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* For Firefox */
+/* input[type='number'] {
+  -moz-appearance:textfield;
+} */
+/* Webkit browsers like Safari and Chrome */
+/* input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} */
+
+

@@ -10,13 +10,12 @@ export function Utilities(props) {
   );
 
   return (
-    <div>
-      <div>
-        <h3>Utilities Expenses</h3>
-        <ul>
-          {expenseItems}
-        </ul>
-      </div>
-    </div >
+    <div className="ExpenseItem">
+      <h4>Utilities Expenses</h4>
+      <ul>
+        {expenseItems}
+      </ul>
+    </div>
+
   );
 }

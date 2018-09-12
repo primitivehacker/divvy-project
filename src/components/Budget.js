@@ -11,6 +11,8 @@ import { Repairs } from './categories/Repairs'
 import { Utilities } from './categories/Utilities'
 import { Food } from './categories/Food'
 
+import '../styles/App.css';
+
 
 class Budget extends React.Component {
   constructor(props) {
@@ -86,26 +88,45 @@ class Budget extends React.Component {
   render() {
 
     return (
-      <div>
-        <BudgetAmount transactionType={this.state.income} incomeAmounts={this.state.incomeAmounts} carExpenses={this.state.carExpenses} gasExpenses={this.state.gasExpenses} foodExpenses={this.state.foodExpenses} rentExpenses={this.state.rentExpenses} utilitiesExpenses={this.state.utilitiesExpenses} repairsExpenses={this.state.repairsExpenses} budgetAmount={this.state.budgetAmount} incomeAmount={this.props.incomeAmount} expenseAmount={this.props.expenseAmount} category={this.state.category} />
-        <div>
-          <select value={this.state.income} onChange={this.flipIncomeValue}>
-            <option value={true}>Income</option>
-            <option value={false}>Expense</option>
-          </select>
-          <h2>Enter {this.state.income ? 'Income' : 'Expense'} </h2>
+      <div className="Budget">
+        <div className="BudgetAmount">
+          <BudgetAmount transactionType={this.state.income} incomeAmounts={this.state.incomeAmounts} carExpenses={this.state.carExpenses} gasExpenses={this.state.gasExpenses} foodExpenses={this.state.foodExpenses} rentExpenses={this.state.rentExpenses} utilitiesExpenses={this.state.utilitiesExpenses} repairsExpenses={this.state.repairsExpenses} budgetAmount={this.state.budgetAmount} incomeAmount={this.props.incomeAmount} expenseAmount={this.props.expenseAmount} category={this.state.category} />
         </div>
-        <input id="transactionValue" type="text" value={this.state.income ? this.state.incomeAmount : this.state.expenseAmount} onChange={this.handleInputChange} placeholder="Enter Value" />
-        <CategoryDropdown handleChange={category => this.setState({ category })} category={this.state.category} categories={this.state.categories} isIncome={this.state.income} />
-        <button onClick={this.handleSubmit}>Submit</button>
-        <IncomeTransactions incomeAmounts={this.state.incomeAmounts} />
-        {/* <ExpenseTransactions expenseAmounts={this.state.expenseAmounts} category={this.state.category} /> */}
-        <Car carExpenses={this.state.carExpenses} category={this.state.category} />
-        <Gas gasExpenses={this.state.gasExpenses} category={this.state.category} />
-        <Rent rentExpenses={this.state.rentExpenses} category={this.state.category} />
-        <Food foodExpenses={this.state.foodExpenses} category={this.state.category} />
-        <Repairs repairsExpenses={this.state.repairsExpenses} category={this.state.category} />
-        <Utilities utilitiesExpenses={this.state.utilitiesExpenses} category={this.state.category} />
+        <div className="InputContainer">
+          <div className="InputSection">
+            <div className="Select">
+              <select value={this.state.income} onChange={this.flipIncomeValue}>
+                <option value={true}>Income</option>
+                <option value={false}>Expense</option>
+              </select>
+            </div>
+            <div className="Category">
+              <h5>Enter {this.state.income ? 'Income' : 'Expense'} </h5>
+            </div>
+            <div className="Input">
+              <input id="transactionValue" type="number" value={this.state.income ? this.state.incomeAmount : this.state.expenseAmount} onChange={this.handleInputChange} placeholder="Enter Value" onSubmit={this.handleSubmit} />
+            </div>
+            <div className="Dropdown">
+              <CategoryDropdown handleChange={category => this.setState({ category })} category={this.state.category} categories={this.state.categories} isIncome={this.state.income} />
+            </div>
+            <div className="SubmitButton">
+              <button onClick={this.handleSubmit}>Submit</button>
+            </div>
+          </div>
+        </div>
+        <div className="Transactions">
+          <div className="Income">
+            <IncomeTransactions incomeAmounts={this.state.incomeAmounts} />
+          </div>
+          <div className="Expenses">
+            <Car carExpenses={this.state.carExpenses} category={this.state.category} />
+            <Gas gasExpenses={this.state.gasExpenses} category={this.state.category} />
+            <Rent rentExpenses={this.state.rentExpenses} category={this.state.category} />
+            <Food foodExpenses={this.state.foodExpenses} category={this.state.category} />
+            <Repairs repairsExpenses={this.state.repairsExpenses} category={this.state.category} />
+            <Utilities utilitiesExpenses={this.state.utilitiesExpenses} category={this.state.category} />
+          </div>
+        </div>
       </div>
     );
   }

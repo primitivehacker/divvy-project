@@ -10,13 +10,11 @@ export function Food(props) {
   );
 
   return (
-    <div>
-      <div>
-        <h3>Food Expenses</h3>
-        <ul>
-          {expenseItems}
-        </ul>
-      </div>
-    </div >
+    <div className="ExpenseItem">
+      <h4>Food Expenses</h4>
+      <ul>
+        {expenseItems}
+      </ul>
+    </div>
   );
 }

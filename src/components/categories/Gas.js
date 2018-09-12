@@ -10,13 +10,12 @@ export function Gas(props) {
   );
 
   return (
-    <div>
-      <div>
-        <h3>Gas Expenses</h3>
-        <ul>
-          {expenseItems}
-        </ul>
-      </div>
-    </div >
+    <div className="ExpenseItem">
+      <h4>Gas Expenses</h4>
+      <ul>
+        {expenseItems}
+      </ul>
+    </div>
+
   );
 }

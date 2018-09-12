@@ -10,13 +10,11 @@ export function Repairs(props) {
   );
 
   return (
-    <div>
-      <div>
-        <h3>Repairs Expenses</h3>
-        <ul>
-          {expenseItems}
-        </ul>
-      </div>
-    </div >
+    <div className="ExpenseItem">
+      <h4>Repairs Expenses</h4>
+      <ul>
+        {expenseItems}
+      </ul>
+    </div>
   );
 }

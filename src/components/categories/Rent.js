@@ -10,13 +10,12 @@ export function Rent(props) {
   );
 
   return (
-    <div>
-      <div>
-        <h3>Rent Expenses</h3>
-        <ul>
-          {expenseItems}
-        </ul>
-      </div>
-    </div >
+    <div className="ExpenseItem">
+      <h4>Rent Expenses</h4>
+      <ul>
+        {expenseItems}
+      </ul>
+    </div>
+
   );
 }
