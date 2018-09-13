@@ -39,7 +39,7 @@ export function BudgetAmount(props) {
 
   return (
     <div>
-      <h1>Budget: {props.transactionType === true ? calculateBudget(totalIncome, totalExpenses) : calculateBudget(totalIncome, totalExpenses)}</h1>
+      <h1>Budget: ${props.transactionType === true ? calculateBudget(totalIncome, totalExpenses) : calculateBudget(totalIncome, totalExpenses)}</h1>
     </div>
   );
 }

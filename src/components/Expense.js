@@ -5,7 +5,7 @@ export function Expense(props) {
   let value = props.value;
   return (
     <div className="ExpenseItem">
-      <h4>{value}</h4>
+      <h4>${value}</h4>
     </div>
   );
 }
