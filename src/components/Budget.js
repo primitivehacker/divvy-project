@@ -10,6 +10,10 @@ import { Rent } from './categories/Rent'
 import { Repairs } from './categories/Repairs'
 import { Utilities } from './categories/Utilities'
 import { Food } from './categories/Food'
+import PieChart from 'react-minimal-pie-chart'
+import { Legend } from './Legend'
+
+
 
 import '../styles/App.css';
 
@@ -38,32 +42,34 @@ class Budget extends React.Component {
     this.flipIncomeValue = this.flipIncomeValue.bind(this);
   }
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault();
+
     if (this.state.income === true) {
       let incomeAmounts = [...this.state.incomeAmounts];
       incomeAmounts.push(this.state.incomeAmount);
       this.setState({ incomeAmounts, incomeAmount: '' });
-    } else if (this.state.category === 'Car') {
+    } else if (this.state.category === 'Car' && this.state.expenseAmount) {
       let carExpenses = [...this.state.carExpenses];
       carExpenses.push(this.state.expenseAmount);
       this.setState({ carExpenses, expenseAmount: '' });
-    } else if (this.state.category === 'Gas') {
+    } else if (this.state.category === 'Gas' && this.state.expenseAmount) {
       let gasExpenses = [...this.state.gasExpenses];
       gasExpenses.push(this.state.expenseAmount);
       this.setState({ gasExpenses, expenseAmount: '' });
-    } else if (this.state.category === 'Rent') {
+    } else if (this.state.category === 'Rent' && this.state.expenseAmount) {
       let rentExpenses = [...this.state.rentExpenses];
       rentExpenses.push(this.state.expenseAmount);
       this.setState({ rentExpenses, expenseAmount: '' });
-    } else if (this.state.category === 'Utilities') {
+    } else if (this.state.category === 'Utilities' && this.state.expenseAmount) {
       let utilitiesExpenses = [...this.state.utilitiesExpenses];
       utilitiesExpenses.push(this.state.expenseAmount);
       this.setState({ utilitiesExpenses, expenseAmount: '' });
-    } else if (this.state.category === 'Repairs') {
+    } else if (this.state.category === 'Repairs' && this.state.expenseAmount) {
       let repairsExpenses = [...this.state.repairsExpenses];
       repairsExpenses.push(this.state.expenseAmount);
       this.setState({ repairsExpenses, expenseAmount: '' });
-    } else if (this.state.category === 'Food') {
+    } else if (this.state.category === 'Food' && this.state.expenseAmount) {
       let foodExpenses = [...this.state.foodExpenses];
       foodExpenses.push(this.state.expenseAmount);
       this.setState({ foodExpenses, expenseAmount: '' });
@@ -85,7 +91,17 @@ class Budget extends React.Component {
 
   }
 
+
+
+
   render() {
+
+    let totalGasExpenses = this.state.gasExpenses.reduce((accumulator, currentVal) => accumulator + currentVal, 0);
+    let totalCarExpenses = this.state.carExpenses.reduce((accumulator, currentVal) => accumulator + currentVal, 0);
+    let totalRentExpenses = this.state.rentExpenses.reduce((accumulator, currentVal) => accumulator + currentVal, 0);
+    let totalFoodExpenses = this.state.foodExpenses.reduce((accumulator, currentVal) => accumulator + currentVal, 0);
+    let totalUtilitiesExpenses = this.state.utilitiesExpenses.reduce((accumulator, currentVal) => accumulator + currentVal, 0);
+    let totalRepairsExpenses = this.state.repairsExpenses.reduce((accumulator, currentVal) => accumulator + currentVal, 0);
 
     return (
       <div className="Budget">
@@ -104,7 +120,9 @@ class Budget extends React.Component {
               <h5>Enter {this.state.income ? 'Income' : 'Expense'} </h5>
             </div>
             <div className="Input">
-              <input id="transactionValue" type="number" value={this.state.income ? this.state.incomeAmount : this.state.expenseAmount} onChange={this.handleInputChange} placeholder="Enter Value" onSubmit={this.handleSubmit} />
+              <form onSubmit={this.handleSubmit}>
+                <input id="transactionValue" type="number" value={this.state.income ? this.state.incomeAmount : this.state.expenseAmount} onChange={this.handleInputChange} placeholder="Enter Value" />
+              </form>
             </div>
             <div className="Dropdown">
               <CategoryDropdown handleChange={category => this.setState({ category })} category={this.state.category} categories={this.state.categories} isIncome={this.state.income} />
@@ -127,9 +145,26 @@ class Budget extends React.Component {
             <Utilities utilitiesExpenses={this.state.utilitiesExpenses} category={this.state.category} />
           </div>
         </div>
+        <PieChart
+          data={[
+            { title: 'Car', value: totalCarExpenses, color: '#ff5252' },
+            { title: 'Gas', value: totalGasExpenses, color: '#448aff' },
+            { title: 'Rent', value: totalRentExpenses, color: '#455a64' },
+            { title: 'Food', value: totalFoodExpenses, color: '#69f0ae' },
+            { title: 'Repairs', value: totalRepairsExpenses, color: '#ffff00' },
+            { title: 'Utilities', value: totalUtilitiesExpenses, color: '#40c4ff' },
+          ]}
+        />
+        <div className="Legend">
+          <Legend />
+        </div>
+
+
       </div>
     );
   }
 }
+
+
 
 export default Budget;

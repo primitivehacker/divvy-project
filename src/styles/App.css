@@ -51,7 +51,78 @@
   grid-template-columns: 10% 1fr;
 }
 
+.BottomSection {
+  grid-column: 1 / 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
+}
+
+.PieChart {
+  grid-column: 1 / 2;
+}
+.Legend {
+  grid-column: 2 / 4;
+}
+
+/* Square Colors */
+.CarColorSquare {
+  background-color: #ff5252;
+  width: 20px;
+  height: 20px;
+  align-self: center;
+}
+.GasColorSquare {
+  background-color: #448aff;
+  width: 20px;
+  height: 20px;
+  align-self: center;
+}
+.RentColorSquare {
+  background-color: #455a64;
+  width: 20px;
+  height: 20px;
+  align-self: center;
+}
+.FoodColorSquare {
+  background-color: #69f0ae;
+  width: 20px;
+  height: 20px;
+  align-self: center;
+}
+.RepairsColorSquare {
+  background-color: #ffff00;
+  width: 20px;
+  height: 20px;
+  align-self: center;
+}
+.UtilitiesColorSquare {
+  background-color: #40c4ff;
+  width: 20px;
+  height: 20px;
+  align-self: center;
+}
+
+
+
+.LegendTitle {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.LegendTitle h3{
+  justify-self: start;
+}
+.LegendSection {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+}
+
+.LegendRow {
+  grid-column: 2 / 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
 
 
 
