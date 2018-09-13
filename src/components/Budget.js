@@ -84,15 +84,12 @@ class Budget extends React.Component {
 
   handleInputChange(event) {
     if (this.state.income) {
-      this.setState({ incomeAmount: parseInt(event.target.value) });
+      this.setState({ incomeAmount: parseFloat(event.target.value) });
     } else {
-      this.setState({ expenseAmount: parseInt(event.target.value) });
+      this.setState({ expenseAmount: parseFloat(event.target.value) });
     }
 
   }
-
-
-
 
   render() {
 
@@ -134,7 +131,7 @@ class Budget extends React.Component {
         </div>
         <div className="Transactions">
           <div className="Income">
-            <IncomeTransactions incomeAmounts={this.state.incomeAmounts} />
+            <IncomeTransactions incomeAmounts={this.state.incomeAmounts} deleteIncome={this.onDelete} />
           </div>
           <div className="Expenses">
             <Car carExpenses={this.state.carExpenses} category={this.state.category} />

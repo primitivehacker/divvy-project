@@ -10,9 +10,9 @@ export function Food(props) {
   );
 
   return (
-    <div className="ExpenseItem">
-      <h4>Food Expenses</h4>
-      <ul>
+    <div className="ExpenseComponents">
+      <h4 className="ExpenseTitle">Food Expenses</h4>
+      <ul className="ExpenseItems">
         {expenseItems}
       </ul>
     </div>

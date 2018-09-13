@@ -10,9 +10,9 @@ export function Repairs(props) {
   );
 
   return (
-    <div className="ExpenseItem">
-      <h4>Repairs Expenses</h4>
-      <ul>
+    <div className="ExpenseComponents">
+      <h4 className="ExpenseTitle">Repairs Expenses</h4>
+      <ul className="ExpenseItems">
         {expenseItems}
       </ul>
     </div>

@@ -124,10 +124,28 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
+.Delete{
+  color: red;
+}
 
+.IncomeItems {
+  display: grid;
+  grid-template-columns: 1fr;
+}
 
+.ExpenseItems {
+  display: grid;
+  grid-template-columns: 1fr;
+}
 
+.IncomeItem {
+  justify-self: start;
+}
 
+.ExpenseItem {
+  justify-self: start;
+  padding-left: 10px;
+}
 
 
 
@@ -144,5 +162,3 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 } */
-
-

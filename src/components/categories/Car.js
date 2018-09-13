@@ -10,9 +10,9 @@ export function Car(props) {
   );
 
   return (
-    <div className="ExpenseItem">
-      <h4>Car Expenses</h4>
-      <ul >
+    <div className="ExpenseComponents">
+      <h4 className="ExpenseTitle">Car Expenses</h4>
+      <ul className="ExpenseItems">
         {expenseItems}
       </ul>
     </div>
