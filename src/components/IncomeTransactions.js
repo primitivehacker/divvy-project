@@ -1,8 +1,6 @@
-// Enter Starting Budget and display how much is left
 import React from 'react';
 import { Income } from './Income.js'
 import '../styles/App.css';
-// import Expense from './Expense.js'
 
 export function IncomeTransactions(props) {
   const incomeAmounts = props.incomeAmounts;

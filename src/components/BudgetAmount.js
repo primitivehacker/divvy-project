@@ -13,21 +13,6 @@ export function BudgetAmount(props) {
 
   let category = props.category;
 
-  // let budgetAmount = props.budgetAmount;
-  // let incomeAmount = props.incomeAmount;
-  // let expenseAmount = props.expenseAmount;
-
-  // const expenseType = () => {
-  //   if (props.category === 'Car') {
-  //     return carExpenses;
-  //   } else if (props.category === 'Gas') {
-  //     return gasExpenses;
-  //   } else {
-  //     return 'Error'
-  //   }
-  // }
-
-
   let totalIncome = incomeAmounts.reduce((accumulator, currentVal) => accumulator + currentVal, 0);
   let totalGasExpenses = gasExpenses.reduce((accumulator, currentVal) => accumulator + currentVal, 0);
   let totalCarExpenses = carExpenses.reduce((accumulator, currentVal) => accumulator + currentVal, 0);

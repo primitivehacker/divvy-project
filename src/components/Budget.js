@@ -1,7 +1,6 @@
 // Enter Starting Budget and display how much is left
 import React from 'react';
 import { IncomeTransactions } from './IncomeTransactions.js'
-import { ExpenseTransactions } from './ExpenseTransactions.js'
 import { BudgetAmount } from './BudgetAmount.js'
 import { CategoryDropdown } from './CategoryDropdown'
 import { Car } from './categories/Car'
@@ -28,7 +27,6 @@ class Budget extends React.Component {
       goodStanding: true,
       income: true,
       incomeAmounts: [],
-      // expenseAmounts: [],
       carExpenses: [],
       gasExpenses: [],
       rentExpenses: [],
@@ -106,7 +104,8 @@ class Budget extends React.Component {
           <BudgetAmount transactionType={this.state.income} incomeAmounts={this.state.incomeAmounts} carExpenses={this.state.carExpenses} gasExpenses={this.state.gasExpenses} foodExpenses={this.state.foodExpenses} rentExpenses={this.state.rentExpenses} utilitiesExpenses={this.state.utilitiesExpenses} repairsExpenses={this.state.repairsExpenses} budgetAmount={this.state.budgetAmount} incomeAmount={this.props.incomeAmount} expenseAmount={this.props.expenseAmount} category={this.state.category} />
         </div>
         <div className="InputContainer">
-          <div className="InputSection">
+
+          <div className="CategoryAndInput">
             <div className="Select">
               <select value={this.state.income} onChange={this.flipIncomeValue}>
                 <option value={true}>Income</option>
@@ -128,6 +127,7 @@ class Budget extends React.Component {
               <button onClick={this.handleSubmit}>Submit</button>
             </div>
           </div>
+
         </div>
         <div className="Transactions">
           <div className="Income">

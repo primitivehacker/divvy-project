@@ -3,9 +3,7 @@
   display: grid;
   grid-template-columns: 5% 1fr 5%;
   background-color: white;
-
 }
-
 .Budget {
   background-color:white;
   display: grid;
@@ -20,7 +18,6 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
 }
-
 .Income {
   background-color: #76ED84;
   grid-column: 1 / 2;
@@ -31,13 +28,12 @@
   background-color:#8576ED;
   grid-column: 1 / 4;
   display: grid;
-  grid-template-columns: 30% 1fr;
+  grid-template-columns: 10% 1fr 40%;
 }
-
 .InputSection {
   grid-column-start: 2;
   display: grid;
-  grid-template-columns: 5% 15% 10% 20% 10%;
+  grid-template-columns: 10% 1fr;
   align-items: center;
   justify-items: center;
 }
@@ -50,14 +46,11 @@
   display: grid;
   grid-template-columns: 10% 1fr;
 }
-
 .BottomSection {
   grid-column: 1 / 4;
   display: grid;
   grid-template-columns: 1fr 1fr;
-
 }
-
 .PieChart {
   grid-column: 1 / 2;
 }
@@ -102,9 +95,6 @@
   height: 20px;
   align-self: center;
 }
-
-
-
 .LegendTitle {
   display: grid;
   grid-template-columns: 1fr;
@@ -115,50 +105,64 @@
 }
 .LegendSection {
   display: grid;
-  grid-template-columns: 20% 1fr;
+  grid-template-columns: 5% 1fr 20%;
+  align-self: center;
 }
-
 .LegendRow {
   grid-column: 2 / 4;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
 }
-
 .Delete{
   color: red;
 }
-
 .IncomeItems {
   display: grid;
   grid-template-columns: 1fr;
 }
-
 .ExpenseItems {
   display: grid;
   grid-template-columns: 1fr;
 }
-
 .IncomeItem {
-  justify-self: start;
+  justify-self: center;
+  padding-right: 40px;
 }
-
 .ExpenseItem {
   justify-self: start;
-  padding-left: 10px;
 }
 
+.CategoryAndInput {
+  display: grid;
+  grid-column: 2 / 3;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+.Select {
+  justify-self: end;
+  align-self: center
+}
+.Input {
+  justify-self: start;
+  align-self: center;
+}
+.Category {
+  justify-self: end;
+  align-self: center
+}
+.Dropdown {
+  justify-self: start;
+  align-self: center;
+}
+.SubmitButton {
+  justify-self: start;
+  align-self: center;
+}
 
-
-
-
-
-/* For Firefox */
-/* input[type='number'] {
-  -moz-appearance:textfield;
-} */
-/* Webkit browsers like Safari and Chrome */
-/* input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-} */
+.ExpenseComponents {
+  justify-self: center;
+}
+.ExpenseItems {
+  justify-self: center;
+  padding-right: 40px !important;
+}

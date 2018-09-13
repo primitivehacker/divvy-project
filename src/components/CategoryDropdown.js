@@ -1,4 +1,3 @@
-// Enter Starting Budget and display how much is left
 import React from 'react';
 
 export function CategoryDropdown(props) {
